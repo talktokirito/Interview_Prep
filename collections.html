@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collections — Interview Prep</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <a class="page-button" href="index.html">Back</a>
+  </header>
+  <main>
+    <section>
+      <h2>Collections</h2>
+      <nav class="button-row">
+        <button type="button">ArrayList</button>
+        <button type="button">Linked List</button>
+        <button type="button">Vector</button>
+        <button type="button">Stack</button>
+        <button type="button">HashSet</button>
+        <button type="button">LinkedHashSet</button>
+        <button type="button">TreeSet</button>
+        <button type="button">Queue</button>
+        <button type="button">Deque</button>
+        <button type="button">PriorityQueue</button>
+        <button type="button">Hash map</button>
+        <button type="button">LinkedHashMap</button>
+        <button type="button">TreeMap</button>
+        <button type="button">Hashtable</button>
+        <button type="button">ConcurrentHashMap</button>
+      </nav>
+      <figure class="hierarchy">
+        <img src="collections-hierarchy.svg" alt="Java Collections Framework hierarchy showing Collection types (List, Set, Queue) and Map types">
+      </figure>
+
+      <article class="guide">
+        <h3>Quick Choice Guide</h3>
+        <dl>
+          <dt>Default List</dt>
+          <dd>ArrayList</dd>
+          <dt>Default Set</dt>
+          <dd>HashSet</dd>
+          <dt>Default Map</dt>
+          <dd>HashMap</dd>
+          <dt>Default Queue / Stack</dt>
+          <dd>ArrayDeque</dd>
+          <dt>Need Sorted Elements</dt>
+          <dd>TreeSet / TreeMap</dd>
+          <dt>Need Insertion Order Maintained</dt>
+          <dd>LinkedHashSet / LinkedHashMap</dd>
+          <dt>Need Multi-threading / Concurrency</dt>
+          <dd>ConcurrentHashMap / CopyOnWriteArrayList</dd>
+        </dl>
+      </article>
+
+      <article class="breakdown">
+        <h3>Detailed Breakdown by Collection Type</h3>
+
+        <h4>1. Lists (List) — Ordered Sequence, Allows Duplicates</h4>
+        <div class="type-block">
+          <h5>ArrayList (Use by default)</h5>
+          <p><strong>When to use:</strong> You need fast index-based read access (<code>O(1)</code>) and typically add elements to the end of the list.</p>
+          <p><strong>When to avoid:</strong> You perform frequent insertions or deletions in the middle or beginning of large lists (requires shifting elements, <code>O(n)</code>).</p>
+        </div>
+        <div class="type-block">
+          <h5>LinkedList</h5>
+          <p><strong>When to use:</strong> Rarely required in modern Java. Useful only if you have an existing iterator pointing to an element and want constant-time (<code>O(1)</code>) insertions/deletions at that exact node without array resizing.</p>
+          <p><strong>When to avoid:</strong> General use. It has higher memory overhead per node and worse cache locality compared to ArrayList. Use ArrayDeque for stacks and queues instead.</p>
+        </div>
+
+        <h4>2. Sets (Set) — Unique Elements Only, No Duplicates</h4>
+        <div class="type-block">
+          <h5>HashSet (Use by default)</h5>
+          <p><strong>When to use:</strong> You need to enforce uniqueness and want maximum lookup/insertion performance (<code>O(1)</code> average time). Order of elements does not matter.</p>
+          <p><strong>When to avoid:</strong> You need to maintain insertion order or keep elements sorted.</p>
+        </div>
+        <div class="type-block">
+          <h5>LinkedHashSet</h5>
+          <p><strong>When to use:</strong> You need unique elements while preserving the exact insertion order (e.g., removing duplicates from a list while maintaining sequence).</p>
+          <p><strong>Performance:</strong> <code>O(1)</code> average time, slightly higher memory cost than HashSet to maintain the doubly-linked list.</p>
+        </div>
+        <div class="type-block">
+          <h5>TreeSet</h5>
+          <p><strong>When to use:</strong> You need unique elements maintained in natural sorted order or via a custom Comparator. Also ideal for range queries (e.g., finding all values between A and B, <code>subSet()</code>, <code>higher()</code>, <code>lower()</code>).</p>
+          <p><strong>Performance:</strong> <code>O(log n)</code> time for operations due to underlying Red-Black Tree implementation.</p>
+        </div>
+
+        <h4>3. Maps (Map) — Key-Value Pairs, Unique Keys</h4>
+        <div class="type-block">
+          <h5>HashMap (Use by default)</h5>
+          <p><strong>When to use:</strong> You need fast lookup, insertion, and deletion by key (<code>O(1)</code> average time) where key order does not matter.</p>
+          <p><strong>When to avoid:</strong> Multi-threaded scenarios without external synchronization, or when order matters.</p>
+        </div>
+        <div class="type-block">
+          <h5>LinkedHashMap</h5>
+          <p><strong>When to use:</strong> You need to maintain key insertion order or build an LRU (Least Recently Used) cache (using access-order mode via constructor).</p>
+        </div>
+        <div class="type-block">
+          <h5>TreeMap</h5>
+          <p><strong>When to use:</strong> You need keys sorted automatically or require navigational key lookups (e.g., <code>firstKey()</code>, <code>ceilingKey()</code>, <code>floorKey()</code>).</p>
+          <p><strong>Performance:</strong> <code>O(log n)</code> time complexity.</p>
+        </div>
+        <div class="type-block">
+          <h5>ConcurrentHashMap</h5>
+          <p><strong>When to use:</strong> Highly concurrent multi-threaded applications requiring thread safety without locking the entire map (uses bucket-level lock stripping/CAS operations).</p>
+        </div>
+
+        <h4>4. Queues &amp; Deques (Queue / Deque) — Processing Order</h4>
+        <div class="type-block">
+          <h5>ArrayDeque (Use by default for Queue &amp; Stack)</h5>
+          <p><strong>When to use:</strong> Standard FIFO (First-In-First-Out) Queue or LIFO (Last-In-First-Out) Stack operations. Faster and uses less memory than LinkedList or legacy <code>java.util.Stack</code>.</p>
+          <p><strong>Note:</strong> Does not allow null elements.</p>
+        </div>
+        <div class="type-block">
+          <h5>PriorityQueue</h5>
+          <p><strong>When to use:</strong> Elements need to be retrieved in order of priority (min-heap or max-heap) rather than insertion sequence (e.g., task schedulers, Dijkstra's algorithm).</p>
+          <p><strong>Performance:</strong> <code>O(log n)</code> for insertion and removal.</p>
+        </div>
+      </article>
+
+      <article class="comparison">
+        <h3>Comparison Table</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Collection</th>
+                <th>Sub collections</th>
+                <th>Ordering</th>
+                <th>Sorted</th>
+                <th>Duplicates?</th>
+                <th>Thread-safe</th>
+                <th>Time Complexity (Search)</th>
+                <th>Best Primary Use Case</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="5">List</td>
+                <td>ArrayList</td>
+                <td>Insertion</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td><code>O(1)</code> by index / <code>O(n)</code> by value</td>
+                <td>Fast indexed reading &amp; dynamic arrays</td>
+              </tr>
+              <tr>
+                <td>LinkedList</td>
+                <td>Insertion</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td><code>O(n)</code></td>
+                <td>Positional iteration inserts (use ArrayDeque instead)</td>
+              </tr>
+              <tr>
+                <td>Vector</td>
+                <td>Insertion</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td><code>O(1)</code> by index / <code>O(n)</code> by value</td>
+                <td>Legacy synchronized list; prefer CopyOnWriteArrayList or explicit locks</td>
+              </tr>
+              <tr>
+                <td>Stack</td>
+                <td>LIFO</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td><code>O(1)</code> at ends / <code>O(n)</code> by value</td>
+                <td>Legacy LIFO stack; prefer ArrayDeque</td>
+              </tr>
+              <tr>
+                <td>CopyOnWriteArrayList</td>
+                <td>Insertion</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td><code>O(n)</code></td>
+                <td>Thread-safe list with frequent reads and rare writes</td>
+              </tr>
+              <tr>
+                <td rowspan="3">Set</td>
+                <td>HashSet</td>
+                <td>Unordered</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+                <td><code>O(1)</code> average</td>
+                <td>Fast duplicate prevention &amp; membership check</td>
+              </tr>
+              <tr>
+                <td>LinkedHashSet</td>
+                <td>Insertion</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+                <td><code>O(1)</code> average</td>
+                <td>Unique elements preserving insertion sequence</td>
+              </tr>
+              <tr>
+                <td>TreeSet</td>
+                <td>Sorted</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+                <td><code>O(log n)</code></td>
+                <td>Unique elements kept in sorted/range order</td>
+              </tr>
+              <tr>
+                <td rowspan="5">Map</td>
+                <td>HashMap</td>
+                <td>Unordered</td>
+                <td>No</td>
+                <td>Keys: No</td>
+                <td>No</td>
+                <td><code>O(1)</code> average</td>
+                <td>General-purpose fast key-value lookup</td>
+              </tr>
+              <tr>
+                <td>LinkedHashMap</td>
+                <td>Insertion / Access</td>
+                <td>No</td>
+                <td>Keys: No</td>
+                <td>No</td>
+                <td><code>O(1)</code> average</td>
+                <td>Key-value lookup preserving insertion order or LRU cache</td>
+              </tr>
+              <tr>
+                <td>TreeMap</td>
+                <td>Sorted Keys</td>
+                <td>Yes</td>
+                <td>Keys: No</td>
+                <td>No</td>
+                <td><code>O(log n)</code></td>
+                <td>Key-value pairs sorted by key</td>
+              </tr>
+              <tr>
+                <td>ConcurrentHashMap</td>
+                <td>Unordered</td>
+                <td>No</td>
+                <td>Keys: No</td>
+                <td>Yes</td>
+                <td><code>O(1)</code> average</td>
+                <td>Thread-safe key-value lookup without locking the whole map</td>
+              </tr>
+              <tr>
+                <td>Hashtable</td>
+                <td>Unordered</td>
+                <td>No</td>
+                <td>Keys: No</td>
+                <td>Yes</td>
+                <td><code>O(1)</code> average</td>
+                <td>Legacy synchronized map; prefer ConcurrentHashMap</td>
+              </tr>
+              <tr>
+                <td rowspan="2">Queue</td>
+                <td>ArrayDeque</td>
+                <td>Insertion</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td><code>O(1)</code> at ends</td>
+                <td>Double-ended queues, FIFO queues, and stacks</td>
+              </tr>
+              <tr>
+                <td>PriorityQueue</td>
+                <td>Priority-sorted</td>
+                <td>No (heap)</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td><code>O(1)</code> head, <code>O(log n)</code> insertion</td>
+                <td>Processing elements by custom priority rank</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
