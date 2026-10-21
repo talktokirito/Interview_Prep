@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 620" role="img" aria-labelledby="title desc">
+  <title id="title">Java Collections Framework</title>
+  <desc id="desc">Hierarchy of Collection and Map types used in Java interviews.</desc>
+  <style>
+    .title { font: 700 22px system-ui, sans-serif; fill: #102a43; }
+    .note { font: 13px system-ui, sans-serif; fill: #627d98; }
+    .iface { fill: #dbeafe; stroke: #2563eb; stroke-width: 1.5; }
+    .cls { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+    .box-text { font: 600 13px system-ui, sans-serif; fill: #102a43; text-anchor: middle; }
+    .iface-text { font: italic 600 13px system-ui, sans-serif; fill: #1e3a8a; text-anchor: middle; }
+    .line { stroke: #7b8794; stroke-width: 1.5; fill: none; }
+    .dashed { stroke-dasharray: 5 4; }
+    .legend-text { font: 12px system-ui, sans-serif; fill: #334155; }
+  </style>
+
+  <rect width="1180" height="620" fill="#f8fafc"/>
+  <text class="title" x="32" y="36">Java Collections Framework</text>
+  <text class="note" x="32" y="58">Map is not a Collection. LinkedList implements both List and Deque.</text>
+
+  <rect class="iface" x="248" y="80" width="140" height="40" rx="8"/>
+  <text class="iface-text" x="318" y="105">Collection</text>
+
+  <rect class="iface" x="48" y="170" width="120" height="36" rx="8"/>
+  <text class="iface-text" x="108" y="193">List</text>
+  <rect class="iface" x="258" y="170" width="120" height="36" rx="8"/>
+  <text class="iface-text" x="318" y="193">Set</text>
+  <rect class="iface" x="468" y="170" width="120" height="36" rx="8"/>
+  <text class="iface-text" x="528" y="193">Queue</text>
+
+  <path class="line" d="M318 120 V148 H108 V170"/>
+  <path class="line" d="M318 148 V170"/>
+  <path class="line" d="M318 148 H528 V170"/>
+
+  <rect class="cls" x="8" y="250" width="120" height="36" rx="6"/>
+  <text class="box-text" x="68" y="273">ArrayList</text>
+  <rect class="cls" x="8" y="330" width="120" height="36" rx="6"/>
+  <text class="box-text" x="68" y="353">LinkedList</text>
+  <rect class="cls" x="140" y="250" width="120" height="36" rx="6"/>
+  <text class="box-text" x="200" y="273">Vector</text>
+  <rect class="cls" x="140" y="330" width="120" height="36" rx="6"/>
+  <text class="box-text" x="200" y="353">Stack</text>
+
+  <path class="line" d="M108 206 V228 H68 V250"/>
+  <path class="line" d="M108 228 H200 V250"/>
+  <path class="line" d="M68 228 V330"/>
+  <path class="line" d="M200 286 V330"/>
+
+  <rect class="cls" x="230" y="250" width="130" height="36" rx="6"/>
+  <text class="box-text" x="295" y="273">HashSet</text>
+  <rect class="cls" x="230" y="330" width="130" height="36" rx="6"/>
+  <text class="box-text" x="295" y="353">LinkedHashSet</text>
+  <rect class="iface" x="380" y="250" width="120" height="36" rx="8"/>
+  <text class="iface-text" x="440" y="273">SortedSet</text>
+  <rect class="iface" x="380" y="330" width="120" height="36" rx="8"/>
+  <text class="iface-text" x="440" y="353">NavigableSet</text>
+  <rect class="cls" x="380" y="410" width="120" height="36" rx="6"/>
+  <text class="box-text" x="440" y="433">TreeSet</text>
+
+  <path class="line" d="M318 206 V228 H295 V250"/>
+  <path class="line" d="M318 228 H440 V250"/>
+  <path class="line" d="M295 286 V330"/>
+  <path class="line" d="M440 286 V330"/>
+  <path class="line" d="M440 366 V410"/>
+
+  <rect class="cls" x="468" y="250" width="130" height="36" rx="6"/>
+  <text class="box-text" x="533" y="273">PriorityQueue</text>
+  <rect class="iface" x="618" y="250" width="120" height="36" rx="8"/>
+  <text class="iface-text" x="678" y="273">Deque</text>
+  <rect class="cls" x="618" y="330" width="120" height="36" rx="6"/>
+  <text class="box-text" x="678" y="353">ArrayDeque</text>
+
+  <path class="line" d="M528 206 V228 H533 V250"/>
+  <path class="line" d="M528 228 H678 V250"/>
+  <path class="line" d="M678 286 V330"/>
+  <path class="line dashed" d="M128 348 H618 V348"/>
+
+  <rect class="iface" x="900" y="80" width="140" height="40" rx="8"/>
+  <text class="iface-text" x="970" y="105">Map</text>
+  <text class="note" x="1052" y="72">not a Collection</text>
+
+  <rect class="cls" x="760" y="170" width="130" height="36" rx="6"/>
+  <text class="box-text" x="825" y="193">HashMap</text>
+  <rect class="cls" x="760" y="250" width="130" height="36" rx="6"/>
+  <text class="box-text" x="825" y="273">LinkedHashMap</text>
+  <rect class="cls" x="910" y="170" width="130" height="36" rx="6"/>
+  <text class="box-text" x="975" y="193">Hashtable</text>
+  <rect class="cls" x="1050" y="170" width="120" height="50" rx="6"/>
+  <text class="box-text" x="1110" y="191">Concurrent</text>
+  <text class="box-text" x="1110" y="208">HashMap</text>
+  <rect class="iface" x="760" y="330" width="130" height="36" rx="8"/>
+  <text class="iface-text" x="825" y="353">SortedMap</text>
+  <rect class="iface" x="760" y="410" width="130" height="36" rx="8"/>
+  <text class="iface-text" x="825" y="433">NavigableMap</text>
+  <rect class="cls" x="760" y="490" width="130" height="36" rx="6"/>
+  <text class="box-text" x="825" y="513">TreeMap</text>
+
+  <path class="line" d="M970 120 V148 H825 V170"/>
+  <path class="line" d="M970 148 H975 V170"/>
+  <path class="line" d="M970 148 H1110 V170"/>
+  <path class="line" d="M825 206 V250"/>
+  <path class="line" d="M970 148 V310 H825 V330"/>
+  <path class="line" d="M825 366 V410"/>
+  <path class="line" d="M825 446 V490"/>
+
+  <rect class="iface" x="32" y="570" width="90" height="28" rx="6"/>
+  <text class="legend-text" x="132" y="588">Interface</text>
+  <rect class="cls" x="220" y="570" width="90" height="28" rx="6"/>
+  <text class="legend-text" x="320" y="588">Class</text>
+  <line class="line dashed" x1="400" y1="584" x2="460" y2="584"/>
+  <text class="legend-text" x="470" y="588">LinkedList also implements Deque</text>
+</svg>
