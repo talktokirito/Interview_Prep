@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Versions — Interview Prep</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <a class="page-button" href="index.html">Back</a>
+  </header>
+  <main>
+    <section>
+      <h2>Java Versions</h2>
+      <div id="version-list" class="version-list"></div>
+    </section>
+  </main>
+  <script>
+    const VERSIONS = [
+      {
+        name: "Java 5", year: 2004, features: [
+          { name: "Generics", answer: "Generics let the compiler check element types at compile time instead of casting from Object. Under the hood it is type erasure, so the bytecode is the same as before, which is why you cannot write new T() or use a primitive as a type argument. In interviews I always mention that trade-off, because it explains most of the generics quirks people hit." },
+          { name: "Annotations", answer: "Annotations are metadata attached to code, such as @Override, @Deprecated and @SuppressWarnings. The compiler or tools read them, and frameworks like JUnit and Spring depend on them heavily, either at compile time or at runtime through reflection." },
+          { name: "Enums", answer: "Enums are type-safe constants that can also carry fields, constructors and methods. Each constant is a singleton object, so you can compare them with == and use them safely in switch statements. I usually recommend them over int or String constants whenever the set of values is fixed." },
+          { name: "Autoboxing", answer: "Autoboxing converts between primitives and their wrapper classes automatically, so you can write list.add(5) instead of list.add(Integer.valueOf(5)). It is convenient, but it can hide NullPointerExceptions when a null wrapper is unboxed, and it creates extra objects in hot loops." }
+        ]
+      },
+      {
+        name: "Java 6", year: 2006, features: [
+          { name: "Compiler API", answer: "The javax.tools Compiler API lets a Java program compile Java source code at runtime. Build tools, IDEs and code generators use it, and it is the reason you can compile and load code dynamically without shelling out to javac." },
+          { name: "Scripting API", answer: "The Scripting API (JSR 223) defines a common interface for running scripting languages such as JavaScript from Java through ScriptEngine. In practice it has been less important over time, since the built-in JavaScript engine was removed in later releases, but it is still a good example of the pluggable service design." },
+          { name: "JDBC 4.0 driver auto-loading", answer: "Before this, you had to call Class.forName to register a JDBC driver. With JDBC 4.0, any driver jar that declares itself through the ServiceLoader mechanism is found automatically, so the boilerplate line disappears." },
+          { name: "@Override on interface methods", answer: "Before Java 6, @Override only worked on methods overriding a superclass method. Java 6 extended it to methods implementing an interface, which catches signature typos at compile time that would otherwise silently create a new method." }
+        ]
+      },
+      {
+        name: "Java 7", year: 2011, features: [
+          { name: "Try-with-resources", answer: "Any class implementing AutoCloseable can be declared in the try header, and the JVM closes it automatically, even when an exception is thrown. It replaced a lot of error-prone finally blocks, and the suppressed exceptions are recorded so you do not lose the original error." },
+          { name: "Diamond operator", answer: "The diamond operator lets you write new ArrayList<>() and let the compiler infer the type arguments from the variable declaration. It removes the repeated generic types that made older code noisy, although it does not infer types for anonymous classes until Java 9." },
+          { name: "Multi-catch", answer: "Multi-catch lets one catch block handle several unrelated exception types, written as catch (IOException | SQLException e). It keeps the handling code in one place, and the variable e is implicitly final, so you cannot reassign it." },
+          { name: "Strings in switch", answer: "Starting with Java 7 you can switch on a String, which the compiler implements with hashCode and equals. It makes command parsing and state handling much more readable than long if-else chains." }
+        ]
+      },
+      {
+        name: "Java 8", year: 2014, features: [
+          { name: "Lambda expressions", answer: "A lambda is a short anonymous function, written as (a, b) -> a + b, that implements a functional interface. It lets us pass behaviour around as data, which removed a huge amount of anonymous inner class boilerplate, especially in collection processing and event handling." },
+          { name: "Stream API", answer: "A Stream is a pipeline over a data source that supports operations like filter, map and collect. Intermediate operations are lazy and nothing runs until a terminal operation is called. A stream can be consumed only once, and I explain to juniors that it describes what to compute rather than how to loop." },
+          { name: "Functional interfaces and method references", answer: "A functional interface has exactly one abstract method, and @FunctionalInterface makes the compiler enforce that. Method references such as String::length are shorthand for lambdas that call an existing method. The java.util.function package, with Predicate, Function, Supplier and Consumer, covers most cases." },
+          { name: "Optional", answer: "Optional is a container that may or may not hold a value, and it is meant to make the absence of a result explicit in the return type. The rule I teach is to use map, orElse and orElseThrow rather than calling get() without checking. It is not meant for fields or method parameters." },
+          { name: "Default and static interface methods", answer: "Default methods let an interface provide an implementation that existing implementers inherit. That was the mechanism that let Java add stream() to the Collection interface without breaking every class already implementing it." },
+          { name: "New date and time API", answer: "java.time, with LocalDate, LocalDateTime, Instant and Duration, replaced the old Date and Calendar classes. The new types are immutable and thread-safe, and the API separates human time from machine time. I still see Date bugs in old code, so I recommend migrating whenever we touch it." }
+        ]
+      },
+      {
+        name: "Java 11", year: 2018, features: [
+          { name: "HTTP Client", answer: "java.net.http.HttpClient is the standard replacement for HttpURLConnection. It supports HTTP/2, WebSocket and asynchronous calls that return CompletableFuture. Before this, most teams pulled in a third-party library just to make a clean HTTP call." },
+          { name: "New String methods", answer: "isBlank, strip, lines and repeat cover patterns that used to need trim, regex or StringUtils. strip is the important one, because trim only removes characters up to a space, while strip uses Unicode whitespace rules." },
+          { name: "Files.readString and writeString", answer: "These two methods read and write a whole file as a String in one call, with an explicit charset. They replace the multi-line stream or reader setup that was needed for simple file operations." },
+          { name: "Single-file source launch", answer: "You can run a file such as Hello.java directly with the java command, and the compiler runs in memory. It is handy for scripts and demos, but I would not use it for production builds." },
+          { name: "var in lambda parameters", answer: "You can write (var x, var y) -> x + y, which lets you attach annotations to lambda parameters while keeping the inferred types." }
+        ]
+      },
+      {
+        name: "Java 17", year: 2021, features: [
+          { name: "Sealed classes (standard)", answer: "Sealed classes became standard in 17. Combined with records and pattern matching, they let you model algebraic data types, such as a Shape that can only be a Circle or a Square, with compile-time exhaustiveness." },
+          { name: "Strong encapsulation by default", answer: "Code can no longer use deep reflection into JDK internals by default. Libraries that relied on sun.misc.Unsafe or internal packages needed updating, and this is the change I most often see break old frameworks during upgrades." },
+          { name: "Random number generator API", answer: "The RandomGenerator interface unifies the different random number generators in the JDK, so you can choose an algorithm by name and write code that works with any of them." }
+        ]
+      },
+      {
+        name: "Java 21", year: 2023, features: [
+          { name: "Virtual threads", answer: "Virtual threads became standard in 21. You write one thread per request in simple blocking code, and the JVM parks and resumes them cheaply. The main thing to watch for is pinning inside synchronized blocks, which was improved in later releases." },
+          { name: "Pattern matching for switch", answer: "Switch can match on types, record patterns and guards, and it must be exhaustive for sealed types. It turns long chains of instanceof checks into one clear, checked structure." },
+          { name: "Record patterns", answer: "Record patterns deconstruct records in instanceof and switch, including nested patterns. They make it easy to pull values out of a structure in one step." },
+          { name: "Sequenced collections", answer: "The new SequencedCollection and SequencedMap interfaces give a consistent way to get the first and last elements and to reverse a collection. Before this, getting the last element of a List or LinkedHashSet needed a different approach each time." },
+          { name: "Generational ZGC", answer: "The ZGC collector can now separate young and old objects, which reduces the work it does for short-lived objects. It keeps pauses very low while lowering CPU overhead, which is useful for large, latency-sensitive services." }
+        ]
+      },
+      {
+        name: "Java 25", year: 2025, features: [
+          { name: "Scoped values (standard)", answer: "Scoped values became standard in 25. They are the preferred way to pass immutable request-level data through a call chain, and they work well with virtual threads, where ThreadLocal can become expensive." },
+          { name: "Compact source files and instance main (standard)", answer: "This is the standard version of the single-file entry point. Beginners can write a program with a top-level method, and experienced developers still get the full class-based structure when they need it." },
+          { name: "Module import declarations (standard)", answer: "A single line such as import module java.base; brings in every public type from a module. It is a shortcut for demos and scripts, and I would still use explicit imports in large production code for clarity." },
+          { name: "Compact object headers", answer: "The object header, the metadata each Java object carries, was made smaller. This reduces memory use for applications with many small objects, which is a common cost in large services." }
+        ]
+      }
+    ];
+
+    const list = document.getElementById("version-list");
+
+    VERSIONS.forEach(version => {
+      const block = document.createElement("div");
+      block.className = "version";
+
+      const toggle = document.createElement("button");
+      toggle.type = "button";
+      toggle.className = "version-toggle";
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.textContent = `${version.name} (${version.year})`;
+
+      const panel = document.createElement("div");
+      panel.className = "version-panel";
+      panel.hidden = true;
+
+      const features = document.createElement("div");
+      features.className = "button-row";
+
+      const definition = document.createElement("p");
+      definition.className = "definition";
+      definition.textContent = "Select a feature to see its explanation.";
+
+      version.features.forEach(feature => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "feature-button";
+        button.textContent = feature.name;
+        button.addEventListener("click", () => {
+          definition.textContent = feature.answer;
+        });
+        features.appendChild(button);
+      });
+
+      toggle.addEventListener("click", () => {
+        const expanded = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!expanded));
+        panel.hidden = expanded;
+      });
+
+      panel.append(features, definition);
+      block.append(toggle, panel);
+      list.appendChild(block);
+    });
+  </script>
+</body>
+</html>

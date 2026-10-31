@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Comparison — Interview Prep</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <a class="page-button" href="index.html">Back</a>
+  </header>
+  <main>
+    <section>
+      <h2>Cloud Services Comparison</h2>
+      <article class="comparison">
+        <h3>AWS vs Azure vs GCP</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Categories</th>
+                <th>AWS</th>
+                <th>Azure</th>
+                <th>GCP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Compute</th>
+                <td>EC2, Lightsail, Batch, Outposts</td>
+                <td>Virtual Machines, Virtual Machine Scale Sets, Azure Batch</td>
+                <td>Compute Engine, Batch, Bare Metal Solution</td>
+              </tr>
+              <tr>
+                <th scope="row">Serverless</th>
+                <td>Lambda, App Runner, Fargate</td>
+                <td>Azure Functions, Container Apps, App Service</td>
+                <td>Cloud Functions, Cloud Run, App Engine</td>
+              </tr>
+              <tr>
+                <th scope="row">Containers and Kubernetes</th>
+                <td>ECS, EKS, Fargate, ECR</td>
+                <td>Azure Kubernetes Service (AKS), Container Instances, Azure Container Registry, Azure Red Hat OpenShift</td>
+                <td>Google Kubernetes Engine (GKE), Artifact Registry, Cloud Deploy</td>
+              </tr>
+              <tr>
+                <th scope="row">Object Storage</th>
+                <td>S3, S3 Glacier</td>
+                <td>Blob Storage, Data Lake Storage</td>
+                <td>Cloud Storage, Storage Transfer Service</td>
+              </tr>
+              <tr>
+                <th scope="row">Block and File Storage</th>
+                <td>EBS, EFS, FSx, Storage Gateway</td>
+                <td>Managed Disks, Azure Files, Azure NetApp Files</td>
+                <td>Persistent Disk, Filestore</td>
+              </tr>
+              <tr>
+                <th scope="row">Relational Databases</th>
+                <td>RDS, Aurora</td>
+                <td>Azure SQL Database, SQL Managed Instance, Azure Database for PostgreSQL, Azure Database for MySQL</td>
+                <td>Cloud SQL, AlloyDB, Cloud Spanner</td>
+              </tr>
+              <tr>
+                <th scope="row">NoSQL and Caching</th>
+                <td>DynamoDB, DocumentDB, Keyspaces, MemoryDB, ElastiCache</td>
+                <td>Azure Cosmos DB, Azure Cache for Redis</td>
+                <td>Firestore, Bigtable, Memorystore</td>
+              </tr>
+              <tr>
+                <th scope="row">Networking</th>
+                <td>VPC, Route 53, Direct Connect, Transit Gateway, Global Accelerator</td>
+                <td>Virtual Network, Azure DNS, ExpressRoute, VPN Gateway, Traffic Manager, Azure Bastion</td>
+                <td>VPC, Cloud DNS, Cloud Interconnect, Cloud NAT, Network Connectivity Center</td>
+              </tr>
+              <tr>
+                <th scope="row">Load Balancing and CDN</th>
+                <td>Elastic Load Balancing, CloudFront</td>
+                <td>Load Balancer, Application Gateway, Azure Front Door, Azure CDN</td>
+                <td>Cloud Load Balancing, Cloud CDN</td>
+              </tr>
+              <tr>
+                <th scope="row">API Management</th>
+                <td>API Gateway</td>
+                <td>API Management</td>
+                <td>API Gateway, Apigee</td>
+              </tr>
+              <tr>
+                <th scope="row">Messaging and Events</th>
+                <td>SQS, SNS, EventBridge, Amazon MQ</td>
+                <td>Service Bus, Event Hubs, Event Grid, Storage Queues</td>
+                <td>Pub/Sub, Eventarc, Cloud Tasks</td>
+              </tr>
+              <tr>
+                <th scope="row">Workflow and Orchestration</th>
+                <td>Step Functions</td>
+                <td>Logic Apps</td>
+                <td>Workflows, Cloud Composer, Cloud Scheduler</td>
+              </tr>
+              <tr>
+                <th scope="row">Analytics and Big Data</th>
+                <td>Athena, EMR, Glue, Kinesis, Redshift, QuickSight, Lake Formation, OpenSearch Service</td>
+                <td>Azure Synapse Analytics, Azure Data Factory, Azure Databricks, HDInsight, Stream Analytics, Microsoft Fabric, Power BI</td>
+                <td>BigQuery, Dataflow, Dataproc, Data Fusion, Dataplex, Looker, Datastream</td>
+              </tr>
+              <tr>
+                <th scope="row">AI and Machine Learning</th>
+                <td>SageMaker, Bedrock, Rekognition, Comprehend, Lex, Polly, Textract, Transcribe, Translate</td>
+                <td>Azure Machine Learning, Azure OpenAI Service, Azure AI Search, Azure AI Services, Azure AI Document Intelligence, Azure AI Speech, Azure Bot Service</td>
+                <td>Vertex AI, Gemini API, AutoML, Vision AI, Natural Language AI, Speech-to-Text, Text-to-Speech, Translation AI, Document AI</td>
+              </tr>
+              <tr>
+                <th scope="row">Identity and Security</th>
+                <td>IAM, KMS, Secrets Manager, Cognito, WAF, Shield, GuardDuty, Inspector, Macie, Security Hub</td>
+                <td>Microsoft Entra ID, Key Vault, Microsoft Defender for Cloud, Microsoft Sentinel, Azure Policy, DDoS Protection, Private Link</td>
+                <td>IAM, Cloud KMS, Secret Manager, Identity Platform, Security Command Center, Cloud Armor, Binary Authorization</td>
+              </tr>
+              <tr>
+                <th scope="row">Monitoring and Management</th>
+                <td>CloudWatch, CloudTrail, CloudFormation, Systems Manager, AWS Config, Control Tower, Organizations, Cost Explorer</td>
+                <td>Azure Monitor, Log Analytics, Application Insights, Azure Resource Manager, Azure Automation, Azure Advisor, Cost Management, Azure Arc</td>
+                <td>Cloud Monitoring, Cloud Logging, Cloud Trace, Cloud Profiler, Cloud Asset Inventory, Resource Manager, Billing</td>
+              </tr>
+              <tr>
+                <th scope="row">DevOps and Developer Tools</th>
+                <td>CodeBuild, CodeCommit, CodeDeploy, CodePipeline, CodeArtifact, Cloud9</td>
+                <td>Azure DevOps, Azure Pipelines, Azure Artifacts, Azure Load Testing</td>
+                <td>Cloud Build, Cloud Shell</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
