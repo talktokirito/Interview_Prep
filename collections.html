@@ -13,23 +13,68 @@
   <main>
     <section>
       <h2>Collections</h2>
-      <nav class="button-row">
-        <button type="button">ArrayList</button>
-        <button type="button">Linked List</button>
-        <button type="button">Vector</button>
-        <button type="button">Stack</button>
-        <button type="button">HashSet</button>
-        <button type="button">LinkedHashSet</button>
-        <button type="button">TreeSet</button>
-        <button type="button">Queue</button>
-        <button type="button">Deque</button>
-        <button type="button">PriorityQueue</button>
-        <button type="button">Hash map</button>
-        <button type="button">LinkedHashMap</button>
-        <button type="button">TreeMap</button>
-        <button type="button">Hashtable</button>
-        <button type="button">ConcurrentHashMap</button>
-      </nav>
+      <p class="legend">
+        <span class="priority-must">Must know</span>
+        <span class="priority-medium">Medium priority</span>
+        <span class="priority-low">Low priority</span>
+      </p>
+
+      <article class="guide">
+        <h3>Lists</h3>
+        <nav class="button-row">
+          <button type="button" class="priority-must">ArrayList</button>
+          <button type="button" class="priority-medium">LinkedList</button>
+          <button type="button" class="priority-medium">CopyOnWriteArrayList</button>
+          <button type="button" class="priority-low">Vector</button>
+          <button type="button" class="priority-low">Stack</button>
+        </nav>
+      </article>
+
+      <article class="guide">
+        <h3>Sets</h3>
+        <nav class="button-row">
+          <button type="button" class="priority-must">HashSet</button>
+          <button type="button" class="priority-must">LinkedHashSet</button>
+          <button type="button" class="priority-must">TreeSet</button>
+          <button type="button" class="priority-low">EnumSet</button>
+        </nav>
+      </article>
+
+      <article class="guide">
+        <h3>Queues and Deques</h3>
+        <nav class="button-row">
+          <button type="button" class="priority-must">ArrayDeque</button>
+          <button type="button" class="priority-must">PriorityQueue</button>
+          <button type="button" class="priority-medium">Queue and Deque Interfaces</button>
+        </nav>
+      </article>
+
+      <article class="guide">
+        <h3>Maps</h3>
+        <nav class="button-row">
+          <button type="button" class="priority-must">HashMap</button>
+          <button type="button" class="priority-must">LinkedHashMap</button>
+          <button type="button" class="priority-must">TreeMap</button>
+          <button type="button" class="priority-must">ConcurrentHashMap</button>
+          <button type="button" class="priority-low">Hashtable</button>
+          <button type="button" class="priority-low">EnumMap</button>
+          <button type="button" class="priority-low">WeakHashMap</button>
+          <button type="button" class="priority-low">IdentityHashMap</button>
+        </nav>
+      </article>
+
+      <article class="guide">
+        <h3>Core Concepts</h3>
+        <nav class="button-row">
+          <button type="button" class="priority-must">HashMap Internals</button>
+          <button type="button" class="priority-must">Fail-fast vs Fail-safe Iterators</button>
+          <button type="button" class="priority-must">Immutable Collections</button>
+          <button type="button" class="priority-must">Big-O Cheat Sheet</button>
+          <button type="button" class="priority-must">Choosing the Right Collection</button>
+          <button type="button" class="priority-medium">Collections Utility Class</button>
+        </nav>
+      </article>
+
       <figure class="hierarchy">
         <img src="collections-hierarchy.svg" alt="Java Collections Framework hierarchy showing Collection types (List, Set, Queue) and Map types">
       </figure>
@@ -281,5 +326,8 @@
       </article>
     </section>
   </main>
+  <script src="collections-answers.js"></script>
+  <script src="service-answers.js"></script>
+  <script src="site-nav.js"></script>
 </body>
 </html>

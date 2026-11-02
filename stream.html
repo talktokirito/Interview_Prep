@@ -12,8 +12,96 @@
   </header>
   <main>
     <section>
-      <h2>Stream</h2>
+      <h2>Java Stream API</h2>
+      <p class="legend">
+        <span class="priority-must">Must know</span>
+        <span class="priority-medium">Medium priority</span>
+        <span class="priority-low">Low priority</span>
+      </p>
+
+      <article class="guide">
+        <h3>Core Concepts</h3>
+        <nav class="button-row">
+          <button type="button" class="priority-must">Stream vs Collection</button>
+          <button type="button" class="priority-must">Lazy evaluation</button>
+          <button type="button" class="priority-must">Short-circuiting</button>
+          <button type="button" class="priority-medium">Stateless vs stateful operations</button>
+          <button type="button" class="priority-must">Single use of streams</button>
+        </nav>
+      </article>
+
+      <article class="guide">
+        <h3>Creating Streams</h3>
+        <nav class="button-row">
+          <button type="button" class="priority-must">Collection.stream()</button>
+          <button type="button" class="priority-medium">Stream.of and Arrays.stream</button>
+          <button type="button" class="priority-medium">Stream.iterate and Stream.generate</button>
+          <button type="button" class="priority-medium">Files.lines and BufferedReader.lines</button>
+        </nav>
+      </article>
+
+      <article class="guide">
+        <h3>Intermediate Operations</h3>
+        <nav class="button-row">
+          <button type="button" class="priority-must">filter</button>
+          <button type="button" class="priority-must">map</button>
+          <button type="button" class="priority-must">flatMap</button>
+          <button type="button" class="priority-medium">peek</button>
+          <button type="button" class="priority-medium">distinct</button>
+          <button type="button" class="priority-must">sorted</button>
+          <button type="button" class="priority-must">limit and skip</button>
+          <button type="button" class="priority-low">takeWhile and dropWhile</button>
+        </nav>
+      </article>
+
+      <article class="guide">
+        <h3>Terminal Operations</h3>
+        <nav class="button-row">
+          <button type="button" class="priority-must">forEach</button>
+          <button type="button" class="priority-must">collect</button>
+          <button type="button" class="priority-must">reduce</button>
+          <button type="button" class="priority-must">count</button>
+          <button type="button" class="priority-medium">min and max</button>
+          <button type="button" class="priority-must">anyMatch, allMatch and noneMatch</button>
+          <button type="button" class="priority-must">findFirst and findAny</button>
+          <button type="button" class="priority-must">toList</button>
+          <button type="button" class="priority-medium">toArray</button>
+        </nav>
+      </article>
+
+      <article class="guide">
+        <h3>Collectors</h3>
+        <nav class="button-row">
+          <button type="button" class="priority-must">toList, toSet and toMap</button>
+          <button type="button" class="priority-must">groupingBy</button>
+          <button type="button" class="priority-medium">partitioningBy</button>
+          <button type="button" class="priority-must">joining</button>
+          <button type="button" class="priority-medium">summarizing and averaging</button>
+          <button type="button" class="priority-low">teeing</button>
+        </nav>
+      </article>
+
+      <article class="guide">
+        <h3>Primitive Streams</h3>
+        <nav class="button-row">
+          <button type="button" class="priority-must">IntStream, LongStream and DoubleStream</button>
+          <button type="button" class="priority-medium">boxed and mapToObj</button>
+          <button type="button" class="priority-medium">range and rangeClosed</button>
+        </nav>
+      </article>
+
+      <article class="guide">
+        <h3>Parallel Streams</h3>
+        <nav class="button-row">
+          <button type="button" class="priority-must">parallel streams</button>
+          <button type="button" class="priority-must">Common ForkJoinPool</button>
+          <button type="button" class="priority-low">forEachOrdered</button>
+        </nav>
+      </article>
     </section>
   </main>
+  <script src="stream-answers.js"></script>
+  <script src="service-answers.js"></script>
+  <script src="site-nav.js"></script>
 </body>
 </html>
