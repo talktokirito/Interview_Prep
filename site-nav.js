@@ -32,13 +32,22 @@ const SITE_NAV = [
   { label: "Interview Skills", items: [
     ["Data Structures and Algorithms", "dsa.html", "d"],
     ["Scenario Questions", "scenarios.html", "m"],
-    ["Behavioural and Leadership", "behavioural.html", "m"]
+    ["Behavioural and Leadership", "behavioural.html", "m"],
+    ["Coding Questions", "coding-questions.html", "m"]
   ] },
   { label: "Cloud", items: [
     ["AWS", "aws.html", "m"],
     ["GCP", "gcp.html", "d"],
     ["Azure", "azure.html", "d"],
     ["Comparison", "comparison.html", "d"]
+  ] },
+  { label: "SQL", items: [
+    ["SQL", "sql.html", "m"]
+  ] },
+  { label: "Frontend", items: [
+    ["Angular", "angular.html", "m"],
+    ["CSS", "css.html", "m"],
+    ["JavaScript", "javascript.html", "m"]
   ] }
 ];
 
