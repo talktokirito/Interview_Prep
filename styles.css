@@ -24,6 +24,32 @@ header {
   border-bottom: 1px solid #d9e2ec;
 }
 
+/* Topic row on the home page header: full width so it sits above the site nav. */
+.topic-row {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.topic-button {
+  font-weight: 600;
+}
+
+.topic-button.topic-active {
+  background: #334e68;
+  border-color: #334e68;
+  color: #ffffff;
+}
+
+.topic-button.topic-active:hover {
+  background: #243b53;
+}
+
+[hidden] {
+  display: none !important;
+}
+
 .site-nav {
   display: flex;
   flex-wrap: wrap;

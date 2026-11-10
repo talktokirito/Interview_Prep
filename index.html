@@ -7,7 +7,15 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header></header>
+  <header>
+    <nav class="topic-row" aria-label="Topics">
+      <button type="button" class="topic-button" data-filter="java" aria-pressed="false">Java</button>
+      <button type="button" class="topic-button" data-filter="spring" aria-pressed="false">Spring</button>
+      <button type="button" class="topic-button" data-filter="microservices" aria-pressed="false">Microservices</button>
+      <button type="button" class="topic-button" data-filter="sql" aria-pressed="false">SQL</button>
+      <button type="button" class="topic-button" data-filter="frontend" aria-pressed="false">Frontend</button>
+    </nav>
+  </header>
   <main>
     <p class="legend">
       <span class="priority-must">Must know</span>
@@ -17,33 +25,33 @@
     <section>
       <h2>Core Java Topics</h2>
       <nav class="button-row">
-        <a class="page-button priority-must" href="collections.html">Collections</a>
-        <a class="page-button priority-must" href="versions.html">Versions</a>
-        <a class="page-button priority-must" href="stream.html">Stream</a>
-        <a class="page-button priority-must" href="spring.html">Spring</a>
+        <a class="page-button priority-must" href="collections.html" data-topic="java">Collections</a>
+        <a class="page-button priority-must" href="versions.html" data-topic="java">Versions</a>
+        <a class="page-button priority-must" href="stream.html" data-topic="java">Stream</a>
+        <a class="page-button priority-must" href="spring.html" data-topic="spring">Spring</a>
       </nav>
     </section>
     <section>
       <h2>Java Fundamentals</h2>
       <nav class="button-row">
-        <a class="page-button priority-must" href="core-java.html">Core Java and OOP</a>
-        <a class="page-button priority-medium" href="modern-java.html">Modern Java Features</a>
-        <a class="page-button priority-must" href="concurrency.html">Concurrency</a>
-        <a class="page-button priority-must" href="jvm.html">JVM and Performance</a>
-        <a class="page-button priority-must" href="database.html">Databases and JPA</a>
-        <a class="page-button priority-must" href="testing.html">Testing</a>
+        <a class="page-button priority-must" href="core-java.html" data-topic="java">Core Java and OOP</a>
+        <a class="page-button priority-medium" href="modern-java.html" data-topic="java">Modern Java Features</a>
+        <a class="page-button priority-must" href="concurrency.html" data-topic="java">Concurrency</a>
+        <a class="page-button priority-must" href="jvm.html" data-topic="java">JVM and Performance</a>
+        <a class="page-button priority-must" href="database.html" data-topic="java">Databases and JPA</a>
+        <a class="page-button priority-must" href="testing.html" data-topic="java">Testing</a>
       </nav>
     </section>
     <section>
       <h2>Design and Architecture</h2>
       <nav class="button-row">
-        <a class="page-button priority-must" href="design-patterns.html">Design Patterns and SOLID</a>
-        <a class="page-button priority-medium" href="lld.html">Low-Level Design</a>
+        <a class="page-button priority-must" href="design-patterns.html" data-topic="java">Design Patterns and SOLID</a>
+        <a class="page-button priority-medium" href="lld.html" data-topic="java">Low-Level Design</a>
         <a class="page-button priority-must" href="system-design.html">System Design</a>
-        <a class="page-button priority-must" href="microservices.html">Microservices Patterns</a>
+        <a class="page-button priority-must" href="microservices.html" data-topic="microservices">Microservices Patterns</a>
         <a class="page-button priority-medium" href="architecture.html">Architecture</a>
-        <a class="page-button priority-must" href="api-design.html">API Design</a>
-        <a class="page-button priority-medium" href="messaging.html">Messaging and Streaming</a>
+        <a class="page-button priority-must" href="api-design.html" data-topic="microservices">API Design</a>
+        <a class="page-button priority-medium" href="messaging.html" data-topic="microservices">Messaging and Streaming</a>
       </nav>
     </section>
     <section>
@@ -74,46 +82,51 @@
     </section>
     <section>
       <h2>Spring and Microservices</h2>
-      <h3>Spring</h3>
-      <nav class="button-row">
-        <a class="page-button priority-must" href="spring.html#core-spring-framework">Core Framework</a>
-        <a class="page-button priority-must" href="spring.html#spring-boot">Spring Boot</a>
-        <a class="page-button priority-must" href="spring.html#web-and-apis">Web and APIs</a>
-        <a class="page-button priority-must" href="spring.html#data-and-persistence">Data and Persistence</a>
-        <a class="page-button priority-must" href="spring.html#security">Security</a>
-        <a class="page-button priority-must" href="spring.html#cloud-and-microservices">Cloud and Microservices</a>
-        <a class="page-button priority-must" href="spring.html#messaging-and-integration">Messaging and Integration</a>
-        <a class="page-button priority-must" href="spring.html#batch-and-scheduling">Batch and Scheduling</a>
-        <a class="page-button priority-medium" href="spring.html#spring-ai">Spring AI</a>
-        <a class="page-button priority-must" href="spring.html#observability">Observability</a>
-        <a class="page-button priority-must" href="spring.html#testing">Testing</a>
-        <a class="page-button priority-low" href="spring.html#other-spring-projects">Other Projects</a>
-      </nav>
-      <h3>Microservices</h3>
-      <nav class="button-row">
-        <a class="page-button priority-must" href="microservices.html#foundations">Foundations</a>
-        <a class="page-button priority-must" href="microservices.html#data-management">Data Management</a>
-        <a class="page-button priority-must" href="microservices.html#communication">Communication</a>
-        <a class="page-button priority-must" href="microservices.html#resilience">Resilience</a>
-        <a class="page-button priority-medium" href="microservices.html#deployment-and-operations">Deployment and Operations</a>
-        <a class="page-button priority-medium" href="microservices.html#testing">Testing</a>
-      </nav>
+      <div class="topic-group" data-topic="spring">
+        <h3>Spring</h3>
+        <nav class="button-row">
+          <a class="page-button priority-must" href="spring.html#core-spring-framework" data-topic="spring">Core Framework</a>
+          <a class="page-button priority-must" href="spring.html#spring-boot" data-topic="spring">Spring Boot</a>
+          <a class="page-button priority-must" href="spring.html#web-and-apis" data-topic="spring">Web and APIs</a>
+          <a class="page-button priority-must" href="spring.html#data-and-persistence" data-topic="spring">Data and Persistence</a>
+          <a class="page-button priority-must" href="spring.html#security" data-topic="spring">Security</a>
+          <a class="page-button priority-must" href="spring.html#cloud-and-microservices" data-topic="spring">Cloud and Microservices</a>
+          <a class="page-button priority-must" href="spring.html#messaging-and-integration" data-topic="spring">Messaging and Integration</a>
+          <a class="page-button priority-must" href="spring.html#batch-and-scheduling" data-topic="spring">Batch and Scheduling</a>
+          <a class="page-button priority-medium" href="spring.html#spring-ai" data-topic="spring">Spring AI</a>
+          <a class="page-button priority-must" href="spring.html#observability" data-topic="spring">Observability</a>
+          <a class="page-button priority-must" href="spring.html#testing" data-topic="spring">Testing</a>
+          <a class="page-button priority-low" href="spring.html#other-spring-projects" data-topic="spring">Other Projects</a>
+        </nav>
+      </div>
+      <div class="topic-group" data-topic="microservices">
+        <h3>Microservices</h3>
+        <nav class="button-row">
+          <a class="page-button priority-must" href="microservices.html#foundations" data-topic="microservices">Foundations</a>
+          <a class="page-button priority-must" href="microservices.html#data-management" data-topic="microservices">Data Management</a>
+          <a class="page-button priority-must" href="microservices.html#communication" data-topic="microservices">Communication</a>
+          <a class="page-button priority-must" href="microservices.html#resilience" data-topic="microservices">Resilience</a>
+          <a class="page-button priority-medium" href="microservices.html#deployment-and-operations" data-topic="microservices">Deployment and Operations</a>
+          <a class="page-button priority-medium" href="microservices.html#testing" data-topic="microservices">Testing</a>
+        </nav>
+      </div>
     </section>
     <section>
       <h2>SQL</h2>
       <nav class="button-row">
-        <a class="page-button priority-must" href="sql.html">SQL</a>
+        <a class="page-button priority-must" href="sql.html" data-topic="sql">SQL</a>
       </nav>
     </section>
     <section>
       <h2>Angular</h2>
       <nav class="button-row">
-        <a class="page-button priority-must" href="angular.html">Angular</a>
-        <a class="page-button priority-must" href="css.html">CSS</a>
-        <a class="page-button priority-must" href="javascript.html">JavaScript</a>
+        <a class="page-button priority-must" href="angular.html" data-topic="frontend">Angular</a>
+        <a class="page-button priority-must" href="css.html" data-topic="frontend">CSS</a>
+        <a class="page-button priority-must" href="javascript.html" data-topic="frontend">JavaScript</a>
       </nav>
     </section>
   </main>
   <script src="site-nav.js"></script>
+  <script src="index-topics.js"></script>
 </body>
 </html>
